@@ -5,7 +5,7 @@
 	@author Kevin Vong
 	@version 1.0
  */
-public class SLDeque<T> /* implements DequeInterface<T> */  {
+public class SLDeque<T>  implements DequeInterface<T>  {
 
 	private Node<T> head;
 	private Node<T> tail;
@@ -45,7 +45,7 @@ public class SLDeque<T> /* implements DequeInterface<T> */  {
 	}
 
 	
-	public T removeFront() throws EmptyQueueException { //fix me
+	public T removeFront() throws EmptyQueueException { 
 		if(isEmpty()) throw new EmptyQueueException("This queue is empty.");
 		
 		if (head == tail) {
@@ -54,7 +54,7 @@ public class SLDeque<T> /* implements DequeInterface<T> */  {
 			tail = null; // tail to null
 			return tmp; // return data removed
 		}
-		else { //examine this
+		else { 
 			T tmpData = head.getData(); // set tmpData as head
 			head = null; // head to null
 			
@@ -64,10 +64,10 @@ public class SLDeque<T> /* implements DequeInterface<T> */  {
 				tmpNext = tmpNext.getNext();
 			}
 			
-			tmpNext.setNext(null);
-			head = tmpNext;
+			tmpNext.setNext(null); //set next as null
+			head = tmpNext; // set tmpNext as new head
 			
-			return tmpData;
+			return tmpData; // return removed data
 		}
 		
 	} 
